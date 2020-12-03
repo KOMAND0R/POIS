@@ -1,0 +1,43 @@
+#lang racket
+(display "Вариант 2\n")
+(define (recur lst)
+  (if ( < 1 (length lst))
+      (append (reverse lst) (recur (cdr lst)))
+      lst)
+  
+ )
+(display "Список lst:(list 1 2 3 4 5 6)\n")
+(display "Результата реверсирования хвоста lst:")
+(recur (list 1 2 3 4 5 6))
+
+(display "Вариант 4\n")
+(define (recu lst)
+  (if (list? lst)
+      (if ( < 0 (length lst))
+          (+ (recu (car lst)) (recu (cdr lst)))
+          0
+      )
+      lst)
+  
+ )
+(display "Cписок:(1((2 3) 4) 5 6)\n")
+(display "Cумму всех числовых элементов списка с учетом наличия подсписков:")
+(recu '(1((2 3) 4) 5 6) )
+
+(display "Вариант 8\n")
+(define (rec lst num)
+  (if (= 0 num)
+      (car (reverse lst))
+      (rec (reverse (cdr (reverse lst))) (- num 1 ))
+      )
+  
+ )
+(display "Список:(1 2 3 4 5 6 7 8 9 10) и позиция 0\n")
+(display "Элемент списка по заданному номеру с конца:")
+(rec '(1 2 3 4 5 6 7 8 9 10) 0)
+(display "Список:(1 2 3 4 5 6 7 8 9 10) и позиция 1\n")
+(display "Элемент списка по заданному номеру с конца:")
+(rec '(1 2 3 4 5 6 7 8 9 10) 1)
+(display "Список:(1 2 3 4 5 6 7 8 9 10) и позиция 2\n")
+(display "Элемент списка по заданному номеру с конца:")
+(rec '(1 2 3 4 5 6 7 8 9 10) 2)
